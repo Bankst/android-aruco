@@ -11,6 +11,7 @@ import org.opencv.utils.Converters;
 import java.util.Vector;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
 
 public class VisionProcessThread implements Runnable {
     private final Lock inmatlock = new ReentrantLock(true);
@@ -130,8 +131,8 @@ public class VisionProcessThread implements Runnable {
 //                Core.rotate(mRgba, mRgba, Core.ROTATE_90_CLOCKWISE);
 //                mRgba.convertTo(mRgba, CvType.CV_8UC4);
 
-                Log.e(TAG, "Detection Time: " + (System.currentTimeMillis() - dt));
-                Log.e(TAG, mRgba.width() + " by " + mRgba.height());
+                Log.e("VisionThread", "Detection Time: " + (System.currentTimeMillis() - dt));
+                Log.e("VisionThread", mRgba.width() + " by " + mRgba.height());
 
 
                 for (Marker m : detectedMarkers) {
@@ -142,7 +143,7 @@ public class VisionProcessThread implements Runnable {
                 markerLock.unlock();
 
 
-                Log.e(TAG, "Marker count: " + detectedMarkers.size());
+                Log.e("VisionThread", "Marker count: " + detectedMarkers.size());
             } else {
                 Imgproc.putText(mRgba, "Invalid Camera Parameters", new Point(mRgba.width() / 4, mRgba.height() / 2), Core.FONT_HERSHEY_SIMPLEX, 2, new Scalar(0, 255, 0));
             }

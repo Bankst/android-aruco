@@ -1,7 +1,5 @@
 package es.ava.aruco;
 
-import es.ava.aruco.exceptions.ExtParamException;
-import min3d.core.Object3d;
 import org.opencv.core.*;
 
 import java.util.Vector;
@@ -21,7 +19,6 @@ public class Board extends Vector<Marker> {
     protected BoardConfiguration conf;
     protected Mat Rvec, Tvec;
     protected float markerSizeMeters;
-    private Object3d object;
 
     // constructor
     public Board() {
@@ -60,13 +57,6 @@ public class Board extends Vector<Marker> {
             }
 
         return tableImage;
-    }
-
-    public void set3dObject(Object3d object) throws ExtParamException {
-        this.object = object;
-        double[] matrix = new double[16];
-        Utils.glGetModelViewMatrix(matrix, Rvec, Tvec);
-        this.object.setModelViewMatrix(matrix);
     }
 
     public void draw3dAxis(Mat frame, CameraParameters cp, Scalar color) {

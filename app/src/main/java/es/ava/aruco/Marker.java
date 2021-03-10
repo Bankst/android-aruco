@@ -1,6 +1,5 @@
 package es.ava.aruco;
 
-import min3d.core.Object3dContainer;
 import org.opencv.calib3d.Calib3d;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
@@ -18,7 +17,6 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker> {
     private static final long serialVersionUID = 1L;
     protected int id;
     protected float ssize;
-    private Object3dContainer object;
     private int rotations;
 
     private final Code code; // a matrix of integer representing the code (see the class to further explanation)
@@ -319,10 +317,6 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker> {
     public void draw3dAxis(Mat frame, CameraParameters cp, Scalar color) {
         Utils.draw3dAxis(frame, cp, color, 2 * ssize, Rvec, Tvec);
 
-    }
-
-    public Object3dContainer object() {
-        return object;
     }
 
     public float getSize() {
