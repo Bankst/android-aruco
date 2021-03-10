@@ -29,8 +29,8 @@ public abstract class CalibrationResult {
         cameraMatrix.get(0, 0, cameraMatrixArray);
         for (int i = 0; i < CAMERA_MATRIX_ROWS; i++) {
             for (int j = 0; j < CAMERA_MATRIX_COLS; j++) {
-                Integer id = i * CAMERA_MATRIX_ROWS + j;
-                editor.putFloat(id.toString(), (float) cameraMatrixArray[id]);
+                int id = i * CAMERA_MATRIX_ROWS + j;
+                editor.putFloat(Integer.toString(id), (float) cameraMatrixArray[id]);
             }
         }
 
@@ -80,8 +80,8 @@ public abstract class CalibrationResult {
         double[] cameraMatrixArray = new double[CAMERA_MATRIX_ROWS * CAMERA_MATRIX_COLS];
         for (int i = 0; i < CAMERA_MATRIX_ROWS; i++) {
             for (int j = 0; j < CAMERA_MATRIX_COLS; j++) {
-                Integer id = i * CAMERA_MATRIX_ROWS + j;
-                cameraMatrixArray[id] = sharedPref.getFloat(id.toString(), -1);
+                int id = i * CAMERA_MATRIX_ROWS + j;
+                cameraMatrixArray[id] = sharedPref.getFloat(Integer.toString(id), -1);
             }
         }
         cameraMatrix.put(0, 0, cameraMatrixArray);

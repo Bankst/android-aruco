@@ -12,8 +12,6 @@ import java.util.Vector;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static aruco.min3d.Min3d.TAG;
-
 public class VisionProcessThread implements Runnable {
     private final Lock inmatlock = new ReentrantLock(true);
     public Mat input;

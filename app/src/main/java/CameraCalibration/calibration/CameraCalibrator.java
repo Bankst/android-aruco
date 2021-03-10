@@ -1,6 +1,5 @@
 package CameraCalibration.calibration;
 
-import android.util.Log;
 import org.opencv.calib3d.Calib3d;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
