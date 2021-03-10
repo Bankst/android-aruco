@@ -8,7 +8,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "me.ngargi.engr100_vision"
-        minSdkVersion 23
+        minSdkVersion 28
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -21,8 +21,9 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 //    externalNativeBuild {
 //        cmake {
@@ -41,6 +42,8 @@ repositories {
 }
 
         dependencies {
+
+            coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 //    implementation fileTree(include: ['*.jar'], dir: 'libs')
 //    implementation files('libs/usb-serial-for-android-v010.jar')
 //    implementation files('libs/usbserial-6.0.5-release.aar')
